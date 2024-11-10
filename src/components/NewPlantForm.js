@@ -1,3 +1,4 @@
+// NewPlantForm.js
 import React, { useState } from "react";
 
 function NewPlantForm({ onAddPlant }) {
@@ -7,33 +8,21 @@ function NewPlantForm({ onAddPlant }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    // Construct new plant data
     const newPlant = { name, image, price: parseFloat(price) };
 
-    // Send POST request to add plant to the database
     fetch("http://localhost:6001/plants", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newPlant),
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to add plant");
-        }
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((addedPlant) => {
-        // Add the newly created plant to the plant list
         onAddPlant(addedPlant);
-        // Reset the form fields
         setName("");
         setImage("");
         setPrice("");
       })
-      .catch((error) => console.error("Error:", error));
+      .catch((error) => console.error("Error adding plant:", error));
   }
 
   return (

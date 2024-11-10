@@ -1,13 +1,14 @@
-import React from 'react';
-import PlantCard from './PlantCard';
+// PlantList.js
+import React from "react";
+import PlantCard from "./PlantCard";
 
 function PlantList({ plants }) {
   return (
-    <div>
-      {plants.map(plant => (
+    <ul className="cards">
+      {plants.map((plant) => (
         <PlantCard key={plant.id} plant={plant} />
       ))}
-    </div>
+    </ul>
   );
 }
 
