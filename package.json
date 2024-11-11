@@ -1,7 +1,7 @@
 {
   "name": "react-hooks-mock-code-challenge-plantshop",
   "version": "0.1.0",
-  "homepage": "https://github.com/georgeyegon/react-hooks-cc-plantshop",
+  "homepage": "https://georgeyegon.github.io/react-hooks-cc-plantshop",
   "private": true,
   "dependencies": {
     "json-server": "^0.16.3",
